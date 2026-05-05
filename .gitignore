@@ -1,0 +1,10 @@
+# IntelliJ / IDEs
+.idea/
+*.iml
+
+# Compilats
+out/
+*.class
+
+# Altres
+*.log

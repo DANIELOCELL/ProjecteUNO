@@ -65,7 +65,15 @@ public class Partida {
             }
         }
         Carta cartaTirada = UI.demanarCarta(jugadorActiu, pilo);
-        jugadorActiu.tirarCarta(cartaTirada,pilo);
+
+// Comprovar si hi ha duplicat i preguntar
+        Carta cartaDuplicada = jugadorActiu.buscarCartaDuplicada(cartaTirada);
+        if (cartaDuplicada != null && UI.volTirarDues()) {
+            jugadorActiu.tirarCarta(cartaTirada, pilo);
+            jugadorActiu.tirarCarta(cartaDuplicada, pilo);
+        } else {
+            jugadorActiu.tirarCarta(cartaTirada, pilo);
+        }
 
         if (jugadorActiu.nombreDeCartes() <= 0) {
             return true;
